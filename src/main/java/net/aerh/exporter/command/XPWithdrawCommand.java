@@ -9,13 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import static net.aerh.exporter.EXPorterPlugin.COMMA_SEPARATED_FORMAT;
-
 public class XPWithdrawCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
-        if (!(commandSender instanceof Player)) {
+        if (!(commandSender instanceof Player player)) {
             commandSender.sendMessage("Only players can use this command.");
             return true;
         }
@@ -24,8 +22,6 @@ public class XPWithdrawCommand implements CommandExecutor {
             commandSender.sendMessage(ChatColor.RED + "You do not have permission to use this command!");
             return true;
         }
-
-        Player player = (Player) commandSender;
 
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "You must specify an amount of experience to withdraw!");
@@ -36,7 +32,7 @@ public class XPWithdrawCommand implements CommandExecutor {
         try {
             amount = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
-            player.sendMessage(ChatColor.RED + "You must specify a valid number!");
+            player.sendMessage(ChatColor.RED + "'" + args[0] + "' is not a valid number!");
             return true;
         }
 
@@ -57,7 +53,7 @@ public class XPWithdrawCommand implements CommandExecutor {
 
         ItemStack itemStack = Util.getExperienceBottle(player, amount);
         ExperienceUtil.changeExp(player, -amount);
-        player.sendMessage(ChatColor.GREEN + "You withdrew " + ChatColor.YELLOW + COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " experience!");
+        player.sendMessage(ChatColor.GREEN + "You withdrew " + ChatColor.YELLOW + Util.COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " experience!");
         player.getInventory().addItem(itemStack);
 
         return true;
