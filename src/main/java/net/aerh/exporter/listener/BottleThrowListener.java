@@ -1,6 +1,6 @@
-package net.aerh.xporter.listener;
+package net.aerh.exporter.listener;
 
-import net.aerh.xporter.XPorterPlugin;
+import net.aerh.exporter.EXPorterPlugin;
 import org.bukkit.entity.Projectile;
 import org.bukkit.entity.ThrownExpBottle;
 import org.bukkit.event.EventHandler;
@@ -10,8 +10,8 @@ import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataType;
 
-import static net.aerh.xporter.util.Util.STORED_XP;
-import static net.aerh.xporter.util.Util.XP_KEY;
+import static net.aerh.exporter.util.Util.STORED_XP;
+import static net.aerh.exporter.util.Util.XP_KEY;
 
 
 public class BottleThrowListener implements Listener {
@@ -31,7 +31,7 @@ public class BottleThrowListener implements Listener {
         }
 
         if (bottle.getItem().getItemMeta().getPersistentDataContainer().has(XP_KEY, PersistentDataType.INTEGER)) {
-            projectile.setMetadata(STORED_XP, new FixedMetadataValue(XPorterPlugin.getPlugin(), bottle.getItem().getItemMeta().getPersistentDataContainer().get(XP_KEY, PersistentDataType.INTEGER)));
+            projectile.setMetadata(STORED_XP, new FixedMetadataValue(EXPorterPlugin.getPlugin(), bottle.getItem().getItemMeta().getPersistentDataContainer().get(XP_KEY, PersistentDataType.INTEGER)));
         }
     }
 
