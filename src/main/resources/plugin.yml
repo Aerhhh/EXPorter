@@ -1,0 +1,4 @@
+name: XPorter
+version: '${project.version}'
+main: net.aerh.xporter.XPorter
+api-version: 1.20
