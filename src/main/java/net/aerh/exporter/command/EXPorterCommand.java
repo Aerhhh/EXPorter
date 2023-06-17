@@ -37,7 +37,7 @@ public class EXPorterCommand implements CommandExecutor {
             try {
                 amount = Integer.parseInt(args[2]);
             } catch (NumberFormatException e) {
-                sender.sendMessage(ChatColor.RED + "You must specify a valid number!");
+                sender.sendMessage(ChatColor.RED + "'" + args[2] + "' is not a valid number!");
                 return true;
             }
 
@@ -60,7 +60,7 @@ public class EXPorterCommand implements CommandExecutor {
             ItemStack itemStack = Util.getExperienceBottle(sender, amount);
             target.getInventory().addItem(itemStack);
             sender.sendMessage(ChatColor.GREEN + "Successfully gave " + ChatColor.YELLOW + target.getName()
-                    + ChatColor.GREEN + " an Experience Bottle with " + ChatColor.YELLOW + EXPorterPlugin.COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " stored experience!");
+                    + ChatColor.GREEN + " an Experience Bottle with " + ChatColor.YELLOW + Util.COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " stored experience!");
             return true;
         }
 
