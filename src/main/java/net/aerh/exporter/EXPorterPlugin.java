@@ -22,11 +22,6 @@ public final class EXPorterPlugin extends JavaPlugin {
         getCommand("exporter").setExecutor(new EXPorterCommand());
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
-
     public static EXPorterPlugin getPlugin() {
         return plugin;
     }
