@@ -1,7 +1,7 @@
-package net.aerh.xporter.command;
+package net.aerh.exporter.command;
 
-import net.aerh.xporter.util.ExperienceUtil;
-import net.aerh.xporter.util.Util;
+import net.aerh.exporter.util.ExperienceUtil;
+import net.aerh.exporter.util.Util;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import static net.aerh.xporter.XPorterPlugin.COMMA_SEPARATED_FORMAT;
+import static net.aerh.exporter.EXPorterPlugin.COMMA_SEPARATED_FORMAT;
 
 public class XPWithdrawCommand implements CommandExecutor {
 
@@ -17,6 +17,11 @@ public class XPWithdrawCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("Only players can use this command.");
+            return true;
+        }
+
+        if (!commandSender.hasPermission("exporter.withdraw")) {
+            commandSender.sendMessage(ChatColor.RED + "You do not have permission to use this command!");
             return true;
         }
 

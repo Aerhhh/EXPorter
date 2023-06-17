@@ -10,11 +10,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class XPorterCommand implements CommandExecutor {
+public class EXPorterCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.isOp() || !sender.hasPermission("xporter.use")) {
+        if (!sender.isOp() || !sender.hasPermission("exporter.use")) {
             sender.sendMessage(ChatColor.RED + "You do not have permission to use this command!");
             return true;
         }
@@ -57,7 +57,7 @@ public class XPorterCommand implements CommandExecutor {
                 return true;
             }
 
-            ItemStack itemStack = Util.getExperienceBottle(null, amount);
+            ItemStack itemStack = Util.getExperienceBottle(sender, amount);
             target.getInventory().addItem(itemStack);
             sender.sendMessage(ChatColor.GREEN + "Successfully gave " + ChatColor.YELLOW + target.getName()
                     + ChatColor.GREEN + " an Experience Bottle with " + ChatColor.YELLOW + EXPorterPlugin.COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " stored experience!");

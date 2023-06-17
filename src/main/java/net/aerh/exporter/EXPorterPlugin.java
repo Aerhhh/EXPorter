@@ -1,17 +1,17 @@
-package net.aerh.xporter;
+package net.aerh.exporter;
 
-import net.aerh.xporter.command.XPWithdrawCommand;
-import net.aerh.xporter.command.XPorterCommand;
-import net.aerh.xporter.listener.BottleThrowListener;
+import net.aerh.exporter.command.XPWithdrawCommand;
+import net.aerh.exporter.command.EXPorterCommand;
+import net.aerh.exporter.listener.BottleThrowListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.text.DecimalFormat;
 
-public final class XPorterPlugin extends JavaPlugin {
+public final class EXPorterPlugin extends JavaPlugin {
 
     public static final DecimalFormat COMMA_SEPARATED_FORMAT = new DecimalFormat("#,###");
 
-    private static XPorterPlugin plugin;
+    private static EXPorterPlugin plugin;
 
     @Override
     public void onEnable() {
@@ -19,7 +19,7 @@ public final class XPorterPlugin extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new BottleThrowListener(), this);
         getCommand("xpwithdraw").setExecutor(new XPWithdrawCommand());
-        getCommand("xporter").setExecutor(new XPorterCommand());
+        getCommand("exporter").setExecutor(new EXPorterCommand());
     }
 
     @Override
@@ -27,7 +27,7 @@ public final class XPorterPlugin extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public static XPorterPlugin getPlugin() {
+    public static EXPorterPlugin getPlugin() {
         return plugin;
     }
 }
