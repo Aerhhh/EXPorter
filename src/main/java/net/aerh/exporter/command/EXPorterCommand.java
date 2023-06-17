@@ -24,7 +24,7 @@ public class EXPorterCommand implements CommandExecutor {
             return true;
         }
 
-        if (args[0].equals("help")) {
+        if (args[0].equalsIgnoreCase("help")) {
             showHelp(sender, label);
             return true;
         } else if (args[0].equalsIgnoreCase("give")) {
