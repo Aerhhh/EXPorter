@@ -60,7 +60,8 @@ public class EXPorterCommand implements CommandExecutor {
             ItemStack itemStack = Util.getExperienceBottle(sender, amount);
             target.getInventory().addItem(itemStack);
             sender.sendMessage(ChatColor.GREEN + "Successfully gave " + ChatColor.YELLOW + target.getName()
-                    + ChatColor.GREEN + " an Experience Bottle with " + ChatColor.YELLOW + Util.COMMA_SEPARATED_FORMAT.format(amount) + ChatColor.GREEN + " stored experience!");
+                    + ChatColor.GREEN + " an Experience Bottle with " + ChatColor.YELLOW + Util.COMMA_SEPARATED_FORMAT.format(amount)
+                    + ChatColor.GREEN + " stored experience!");
             return true;
         }
 

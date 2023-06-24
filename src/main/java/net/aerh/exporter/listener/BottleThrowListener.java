@@ -8,6 +8,7 @@ import org.bukkit.event.entity.ExpBottleEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import static net.aerh.exporter.util.Util.STORED_XP;
@@ -27,8 +28,9 @@ public class BottleThrowListener implements Listener {
             return;
         }
 
-        if (itemMeta.getPersistentDataContainer().has(XP_KEY, PersistentDataType.INTEGER)) {
-            bottle.setMetadata(STORED_XP, new FixedMetadataValue(EXPorterPlugin.getPlugin(), itemMeta.getPersistentDataContainer().get(XP_KEY, PersistentDataType.INTEGER)));
+        PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+        if (container.has(XP_KEY, PersistentDataType.INTEGER)) {
+            bottle.setMetadata(STORED_XP, new FixedMetadataValue(EXPorterPlugin.getPlugin(), container.get(XP_KEY, PersistentDataType.INTEGER)));
         }
     }
 
