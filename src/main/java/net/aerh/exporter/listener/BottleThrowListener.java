@@ -30,7 +30,7 @@ public class BottleThrowListener implements Listener {
 
         PersistentDataContainer container = itemMeta.getPersistentDataContainer();
         if (container.has(XP_KEY, PersistentDataType.INTEGER)) {
-            bottle.setMetadata(STORED_XP, new FixedMetadataValue(EXPorterPlugin.getPlugin(), container.get(XP_KEY, PersistentDataType.INTEGER)));
+            bottle.setMetadata(STORED_XP, new FixedMetadataValue(EXPorterPlugin.getInstance(), container.get(XP_KEY, PersistentDataType.INTEGER)));
         }
     }
 

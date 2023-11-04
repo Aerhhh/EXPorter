@@ -19,10 +19,11 @@ public class Util {
 
     public static final DecimalFormat COMMA_SEPARATED_FORMAT = new DecimalFormat("#,###");
     public static final String STORED_XP = "stored_xp";
-    public static final NamespacedKey XP_KEY = new NamespacedKey(EXPorterPlugin.getPlugin(), STORED_XP);
-    private static final NamespacedKey UUID_KEY = new NamespacedKey(EXPorterPlugin.getPlugin(), "uuid");
+    public static final NamespacedKey XP_KEY = new NamespacedKey(EXPorterPlugin.getInstance(), STORED_XP);
+    private static final NamespacedKey UUID_KEY = new NamespacedKey(EXPorterPlugin.getInstance(), "uuid");
 
     private Util() {
+        throw new UnsupportedOperationException("This class cannot be instantiated!");
     }
 
     public static ItemStack getExperienceBottle(CommandSender sender, int amount) {

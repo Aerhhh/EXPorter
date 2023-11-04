@@ -18,7 +18,7 @@ public final class EXPorterPlugin extends JavaPlugin {
         getCommand("exporter").setExecutor(new EXPorterCommand());
     }
 
-    public static EXPorterPlugin getPlugin() {
+    public static EXPorterPlugin getInstance() {
         return plugin;
     }
 }

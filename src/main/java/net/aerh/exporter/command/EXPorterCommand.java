@@ -69,7 +69,7 @@ public class EXPorterCommand implements CommandExecutor {
     }
 
     private void showHelp(CommandSender sender, String label) {
-        String help = ChatColor.DARK_AQUA + EXPorterPlugin.getPlugin().getDescription().getName() + " v" + EXPorterPlugin.getPlugin().getDescription().getVersion();
+        String help = ChatColor.DARK_AQUA + EXPorterPlugin.getInstance().getDescription().getName() + " v" + EXPorterPlugin.getInstance().getDescription().getVersion();
 
         help += "\n" + ChatColor.GRAY + "Commands:";
         help += "\n" + ChatColor.RESET + "  /" + label + " help - Show this help message";
